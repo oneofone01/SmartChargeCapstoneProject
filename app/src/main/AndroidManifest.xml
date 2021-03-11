@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartChargeCapstoneProject">
-        <activity android:name=".MainMenuActivity"></activity>
+        <activity android:name=".Account"></activity>
+        <activity android:name=".History" />
+        <activity android:name=".Analytics" />
+        <activity android:name=".Rooms" />
+        <activity android:name=".Home" />
+        <activity android:name=".Settings" />
+        <activity android:name=".MainMenuActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
