@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <Button
+            android:id="@+id/analyticsBackBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="24dp"
@@ -19,7 +20,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
-            android:id="@+id/title_view"
+            android:id="@+id/deviceAnalyticsTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -34,11 +35,11 @@
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
     <Button
+        android:id="@+id/analyticsFilterBtn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
-
         android:background="@drawable/ic_baseline_filter_list_24"
         android:elevation="18dp"
         app:layout_constraintEnd_toEndOf="parent"

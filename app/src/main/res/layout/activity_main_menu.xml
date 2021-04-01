@@ -10,7 +10,7 @@
 <!--    android:orientation="vertical"-->
 <!--    android:gravity="center"-->
     <TextView
-        android:id="@+id/title_view"
+        android:id="@+id/dashboardTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -27,7 +27,7 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/title_view"
+        android:layout_below="@id/dashboardTitleText"
         android:rowCount="3"
         android:columnCount="2"
         android:layout_margin="20dp">
