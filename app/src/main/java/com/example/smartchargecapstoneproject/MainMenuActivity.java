@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainMenuActivity extends AppCompatActivity implements View.OnClickListener {
     FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    public CardView homeCard, roomsCard, analyticsCard, historyCard, accountCard, settingsCard;
+    public CardView homeCard, roomsCard, analyticsCard, historyCard, devicesCard, settingsCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +24,14 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
         roomsCard = (CardView) findViewById(R.id.roomsCard);
         analyticsCard = (CardView) findViewById(R.id.analyticsCard);
         historyCard = (CardView) findViewById(R.id.historyCard);
-        accountCard = (CardView) findViewById(R.id.accountCard);
+        devicesCard = (CardView) findViewById(R.id.devicesCard);
         settingsCard = (CardView) findViewById(R.id.settingsCard);
 
         homeCard.setOnClickListener(this);
         roomsCard.setOnClickListener(this);
         analyticsCard.setOnClickListener(this);
         historyCard.setOnClickListener(this);
-        accountCard.setOnClickListener(this);
+        devicesCard.setOnClickListener(this);
         settingsCard.setOnClickListener(this);
     }
 
@@ -60,8 +60,8 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(i);
                 break;
 
-            case R.id.accountCard :
-                i = new Intent(this, Account.class);
+            case R.id.devicesCard :
+                i = new Intent(this, Devices.class);
                 startActivity(i);
                 break;
 

@@ -144,7 +144,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/accountCard"
+            android:id="@+id/devicesCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="2"
@@ -164,7 +164,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ACCOUNT"
+                    android:text="DEVICES"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
