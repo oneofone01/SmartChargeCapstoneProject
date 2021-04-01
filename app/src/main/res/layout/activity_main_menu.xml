@@ -9,21 +9,21 @@
     tools:context=".MainMenuActivity">
 <!--    android:orientation="vertical"-->
 <!--    android:gravity="center"-->
-
-
-
     <TextView
         android:id="@+id/title_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:text="Dashboard"
+        android:elevation="18sp"
+        android:text="My Dashboard"
         android:textSize="30sp"
-        android:layout_marginTop="20dp"/>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +31,6 @@
         android:rowCount="3"
         android:columnCount="2"
         android:layout_margin="20dp">
-
         <androidx.cardview.widget.CardView
             android:id="@+id/homeCard"
             android:layout_width="wrap_content"
@@ -43,7 +42,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="18dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -55,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="HOME"
                 android:textStyle="bold"
+                android:textSize="15sp"
                 android:textAlignment="center"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -70,8 +70,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            >
+            app:cardElevation="8dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ROOMS"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -98,8 +98,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            >
+            app:cardElevation="8dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -110,6 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ANALYTICS"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -126,8 +126,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            >
+            app:cardElevation="8dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,6 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="HISTORY"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -154,8 +154,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            >
+            app:cardElevation="8dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -166,6 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ACCOUNT"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -182,8 +182,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            >
+            app:cardElevation="8dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -194,10 +193,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SETTINGS"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>
-
 </RelativeLayout>

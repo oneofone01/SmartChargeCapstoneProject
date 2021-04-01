@@ -9,25 +9,27 @@
 
     <TextView
         android:id="@+id/title_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="16dp"
-        android:gravity="center"
-        android:text="Settings"
+
+        android:text="My Settings"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnSignOut"
-        android:layout_width="128dp"
+        android:layout_width="200dp"
+        android:layout_marginStart="100dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/title_view"
+        android:layout_marginTop="500dp"
         android:background="#FFFFFFFF"
+        android:gravity="center"
+        android:orientation="vertical"
         android:text="SIGN OUT"
         android:textColor="#1495d7"
         android:textStyle="bold" />
