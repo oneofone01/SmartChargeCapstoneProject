@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Settings extends AppCompatActivity {
-    Button btnSignOut;
+    Button btnSignOut, backBtn;
     FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
@@ -18,6 +18,15 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        backBtn = findViewById(R.id.settingsBackBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this, MainMenuActivity.class);
+                startActivity(intent);
+            }
+        });
         btnSignOut = findViewById(R.id.btnSignOut);
 
         btnSignOut.setOnClickListener(new View.OnClickListener() {
