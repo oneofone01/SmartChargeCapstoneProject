@@ -19,7 +19,6 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         backBtn = findViewById(R.id.settingsBackBtn);
-
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,8 +26,8 @@ public class Settings extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnSignOut = findViewById(R.id.btnSignOut);
 
+        btnSignOut = findViewById(R.id.btnSignOut);
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

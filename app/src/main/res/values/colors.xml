@@ -9,4 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="darkGray">#a9a9a9</color>
     <color name="red">#BE001B</color>
+    <color name="lime">#00FF00</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="paleRose">#d4cbe5</color>
+    <color name="paleTeal">#7adccf</color>
+    <color name="paleOrange">#f7c59f</color>
+    <color name="palePurp">#b8d7f5</color>
+    <color name="paleRed">#e27c6f</color>
+    <color name="paleGrey">#c9e3db</color>
+    <color name="paleGreen">#86d098</color>
 </resources>

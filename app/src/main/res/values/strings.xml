@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SmartChargeCapstoneProject</string>
+    <string name="rooms">Rooms</string>
+    <string name="my_home">My Home</string>
+    <string name="welcome_back">Welcome Back,</string>
+    <string name="michael_walsh">Michael Walsh</string>
+    <string name="recently_used_devices">Recently used devices</string>
+    <string name="view_all" />
 </resources>

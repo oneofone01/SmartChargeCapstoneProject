@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
     tools:context=".Rooms">
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <Button
@@ -20,11 +19,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
-            android:id="@+id/title_view"
+            android:id="@+id/myRoomsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="18dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="My Rooms"
@@ -33,12 +32,21 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/roomsListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myRoomsText"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:nestedScrollingEnabled="true"/>
+    </RelativeLayout>
+
     <Button
+        android:id="@+id/addRoomBtn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="18sp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/ic_baseline_add_24"
         app:layout_constraintEnd_toEndOf="parent"

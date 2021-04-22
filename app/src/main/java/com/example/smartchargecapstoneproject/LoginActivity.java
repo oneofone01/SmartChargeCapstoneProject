@@ -17,10 +17,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText emailId, password;
-    Button btnSignIn, btnSignUp, btnForgotPwd;
-    FirebaseAuth fAuth;
-
+    private EditText emailId, password;
+    private Button btnSignIn, btnSignUp, btnForgotPwd;
+    private FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
@@ -33,12 +32,13 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.etPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignUp = findViewById(R.id.btnSignUp);
-        btnForgotPwd = findViewById(R.id.btnforgotPwd);
+        //btnForgotPwd = findViewById(R.id.btnforgotPwd);
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
-            FirebaseUser firebaseUser = fAuth.getCurrentUser();
+            //FirebaseUser firebaseUser = fAuth.getCurrentUser();
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser firebaseUser = fAuth.getCurrentUser();
                 if( firebaseUser != null) {
                     Toast.makeText(LoginActivity.this,"You are logged in", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(LoginActivity.this, MainMenuActivity.class);
@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email = emailId.getText().toString();
                 String pwd = password.getText().toString();
                 if(email.isEmpty()) {
@@ -66,14 +65,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 else if(email.isEmpty() && pwd.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Fields are empty!", Toast.LENGTH_SHORT);
+                    Toast.makeText(LoginActivity.this, "Fields are empty!", Toast.LENGTH_SHORT).show();
                 }
                 else if(!(email.isEmpty() && pwd.isEmpty())) {
                     fAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
-                                Toast.makeText(LoginActivity.this, "Login Error, Please Login Again", Toast.LENGTH_SHORT);
+                                Toast.makeText(LoginActivity.this, "Login Error, Please Login Again", Toast.LENGTH_SHORT).show();
                             }
                             else{
                                 Intent intToMain = new Intent(LoginActivity.this, MainMenuActivity.class);
@@ -83,7 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                     });
                 }
                 else {
-                    Toast.makeText(LoginActivity.this,"Error Occurred!",Toast.LENGTH_SHORT);
+                    Toast.makeText(LoginActivity.this,"Error Occurred!",Toast.LENGTH_SHORT).show();
+                    login(email, pwd);
                 }
             }
         });
@@ -101,5 +101,22 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         fAuth.addAuthStateListener(authStateListener);
+    }
+
+    private void login(String email, String pwd){
+        fAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Toast.makeText(LoginActivity.this, "Login Error, Please Try Again", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
     }
 }

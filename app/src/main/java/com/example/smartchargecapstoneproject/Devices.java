@@ -57,6 +57,5 @@ public class Devices extends AppCompatActivity {
         deviceListList.add(new DeviceList(" Office Outlet", "Online For: 12 Hours", "Average Wattage Consumed: 1250 W/Hr", "Current Wattage Usage: ~250 Watts", "Estimated Daily Energy Cost: $3.50", "Estimated Monthly Energy Cost: $35.27"));
         deviceListList.add(new DeviceList(" Pool House Outlet", "Online For: 5 Hours", "Average Wattage Consumed: 155 W/Hr", "Current Wattage Usage: ~96 Watts", "Estimated Daily Energy Cost: $2.90", "Estimated Monthly Energy Cost: $22.00"));
         deviceListList.add(new DeviceList(" Game Room Outlet", "Online For: 19 Hours", "Average Wattage Consumed: 1520 W/Hr", "Current Wattage Usage: ~326 Watts", "Estimated Daily Energy Cost: $5.11", "Estimated Monthly Energy Cost: $45.52"));
-
     }
 }
