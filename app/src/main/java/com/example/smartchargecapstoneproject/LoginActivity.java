@@ -53,8 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailId.getText().toString();
-                String pwd = password.getText().toString();
+                String email = emailId.getText().toString().trim();
+                String pwd = password.getText().toString().trim();
                 if(email.isEmpty()) {
                     emailId.setError("Please enter email");
                     emailId.requestFocus();
@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else{
-                    Toast.makeText(LoginActivity.this, "Login Error, Please Try Again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Failed to login! Please check your credentials", Toast.LENGTH_LONG).show();
 
                 }
             }

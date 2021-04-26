@@ -24,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 //import com.example.smartchargecapstoneproject.HomeRoomCardHelperClasses.adapterphone;
 //import com.example.smartchargecapstoneproject.HomeRoomCardHelperClasses.phonehelper;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -31,11 +33,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Home extends AppCompatActivity /*implements adapterphone.ListItemClickListener*/{
 
     private Button backBtn;
-    private TextView fullName;
+    private TextView userNameDisplay;
     private FirebaseAuth fAuth;
-    private FirebaseUser firebaseUser;
+    //private FirebaseUser firebaseUser;
+    private FirebaseUser user;
     private DatabaseReference databaseReference;
     private CircleImageView accountBtn;
+    private String userID;
     //RecyclerView recyclerView;
 
     //RecyclerView.Adapter adapter;
@@ -56,26 +60,52 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
 
 
         //fullName = findViewById(R.id.userNameDisplay);
-        fAuth = FirebaseAuth.getInstance();
-        firebaseUser = fAuth.getCurrentUser();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        //fAuth = FirebaseAuth.getInstance();
+        //user = fAuth.getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        /*databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());*/
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        userID = user.getUid();
+        final TextView nameTextView = (TextView) findViewById(R.id.userNameDisplay);
+
+        databaseReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
+
+                if(userProfile != null){
+                    String userNameDisplay = userProfile.etFullName;
+
+                    nameTextView.setText(userNameDisplay);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Home.this, "Something wrong happened!", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        /*databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 try {
 
                     //UsersData usersData = new UsersData(); //dataSnapshot.getValue(UsersData.class);
-                    UsersData usersData = dataSnapshot.getValue(UsersData.class);
+                    //UsersData usersData = dataSnapshot.getValue(UsersData.class);
+                    User user = dataSnapshot.getValue(User.class);
                     //assert usersData != null;
+                    assert user !=null;
                     //fullName.setFullName(usersData.getFullName());
 
                     //45:00 in https://www.youtube.com/watch?v=BHT8hCtOP1U
-                    /*if (usersData.getImageURL().equals("default")) {
+                    *//*if (usersData.getImageURL().equals("default")) {
                         accountBtn.setImageLevel(R.drawable.ic_baseline_account_circle_24);
                     } else {
                         Glide.with(getApplicationContext()).load(usersData.getImageURL()).into(accountBtn);
-                    }*/
+                    }*//*
 
                 } catch(Exception e){
                     System.out.println("HDHSDKLSDJLKF111");
@@ -90,7 +120,7 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
                 Toast.makeText(Home.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
-        });
+        });*/
 
         accountBtn.setOnClickListener(new View.OnClickListener() {
             @Override

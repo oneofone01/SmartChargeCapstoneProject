@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
     tools:context=".History">
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <Button
@@ -20,27 +19,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
-            android:id="@+id/deviceHistoryTitleText"
+            android:id="@+id/myHistoryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="18dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="Device History"
+            android:text="My Device History"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/historyListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myHistoryText"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:nestedScrollingEnabled="true"/>
 
-    </LinearLayout>
+    </RelativeLayout>
     <Button
         android:id="@+id/deviceHistoryFilterBtn"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="18sp"
         android:layout_marginEnd="16dp"
+        android:layout_marginStart="150dp"
         android:background="@drawable/ic_baseline_filter_list_24"
         android:elevation="18dp"
         app:layout_constraintEnd_toEndOf="parent"

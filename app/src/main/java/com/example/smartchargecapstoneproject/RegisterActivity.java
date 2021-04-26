@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,10 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class RegisterActivity extends AppCompatActivity {
-    EditText fullName, emailId, password;
-    Button btnSignUp;
-    FirebaseAuth fAuth;
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener /*implements View.OnClickListener*/{
+    private EditText fullName, emailId, password;
+    private Button btnSignUp, registerBack;
+    private FirebaseAuth fAuth;
     //FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     //private DatabaseReference root = db.getReference().child("users");
     DatabaseReference databaseReference;
@@ -36,12 +37,19 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
         fAuth = FirebaseAuth.getInstance();
-        fullName = findViewById(R.id.etFullName);
-        emailId = findViewById(R.id.etEmail);
-        password = findViewById(R.id.etPasswordRegister1);
-        btnSignUp = findViewById(R.id.btnSignUp);
+
+        registerBack = (Button) findViewById(R.id.registerBack);
+        registerBack.setOnClickListener(this);
+
+
+        btnSignUp = (Button) findViewById(R.id.btnSignUp);
+        btnSignUp.setOnClickListener(this);
+
+        fullName = (EditText) findViewById(R.id.etFullName);
+        emailId = (EditText) findViewById(R.id.etEmail);
+        password = (EditText) findViewById(R.id.etPasswordRegister1);
+
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
 
 
@@ -49,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
         //databaseReference= FirebaseDatabase.getInstance().getReference().child("UsersData");
         //databaseReference= FirebaseDatabase.getInstance().getReference("users"));
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        /*btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //rootNode = FirebaseDatabase.getInstance();
@@ -74,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
 
-                /*else{
+                *//*else{
                     HashMap<String,String> hashMap = new HashMap<>();
                     //hashMap.put("userId", userId);
                     hashMap.put("fullName", name);
@@ -82,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
                     hashMap.put("password", pwd);
 
                     root.push().setValue(hashMap);
-                }*/
+                }*//*
 
                 else {
                     fAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -97,13 +105,13 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this, "Sign Up successful!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
 
-                                /*HashMap<String,String> hashMap = new HashMap<>();
+                                *//*HashMap<String,String> hashMap = new HashMap<>();
                                 hashMap.put("userId", userId);
                                 hashMap.put("fullName", name);
                                 hashMap.put("email", email);
                                 hashMap.put("password", pwd);
 
-                                root.push().setValue(hashMap);*/
+                                root.push().setValue(hashMap);*//*
 
 
                             }
@@ -114,12 +122,12 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
 
 
 
-    private void register(String name, String email, String pwd) {
+/*    private void register(String name, String email, String pwd) {
 
         fAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -130,6 +138,7 @@ public class RegisterActivity extends AppCompatActivity {
                     assert rUser != null;
                     String userId = rUser.getUid();
                     FirebaseDatabase.getInstance().getReference("Users")
+                            //.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).setValue(rUser);
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(rUser);
                     //databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
                     HashMap<String,String> hashMap = new HashMap<>();
@@ -155,8 +164,77 @@ public class RegisterActivity extends AppCompatActivity {
 
                 }
             }
-        });
+        });*/
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.registerBack:
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
+            case R.id.btnSignUp:
+                btnSignUp();
+                break;
+        }
+
+    }
+
+    private void btnSignUp() {
+        String etFullName = fullName.getText().toString().trim();
+        String etEmail = emailId.getText().toString().trim();
+        String etPasswordRegister1 = password.getText().toString().trim();
+        if(etFullName.isEmpty()) {
+            fullName.setError("Please enter name");
+            fullName.requestFocus();
+            return;
+        }
+        if(etEmail.isEmpty()) {
+            emailId.setError("Please enter email");
+            emailId.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(etEmail).matches()){
+            emailId.setError("Please provide valid email");
+            emailId.requestFocus();
+            return;
+        }
+        if(etPasswordRegister1.isEmpty()) {
+            password.setError("Please enter password");
+            password.requestFocus();
+            return;
+        }
+        if(etPasswordRegister1.length() < 6){
+            password.setError("Min password length should be 6 characters");
+            password.requestFocus();
+            return;
+        }
+
+        fAuth.createUserWithEmailAndPassword(etEmail,etPasswordRegister1)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            User user = new User(etFullName, etEmail);
+
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(RegisterActivity.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Toast.makeText(RegisterActivity.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+                            });
+                        }else{
+                            Toast.makeText(RegisterActivity.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+    }
 }

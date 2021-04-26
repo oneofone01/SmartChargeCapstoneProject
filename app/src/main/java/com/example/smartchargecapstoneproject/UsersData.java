@@ -1,14 +1,14 @@
 package com.example.smartchargecapstoneproject;
 
 public class UsersData{
-    String userId;
-    String fullName;
-    String email;
+    //public String userId;
+    public String fullName;
+    public String email;
     //private String imageURL;
-    String passwordRegister1;
+    public String passwordRegister1;
 
     public UsersData(String userId, String fullName, String email, String imageURL, String passwordRegister1) {
-        this.userId = userId;
+        //this.userId = userId;
         this.fullName = fullName;
         this.email = email;
         //this.imageURL = imageURL;
@@ -18,13 +18,13 @@ public class UsersData{
     public UsersData() {
     }
 
-    public String getUserId() {
+    /*public String getUserId() {
         return userId;
-    }
+    }*/
 
-    public void setUserId(String userId) {
+    /*public void setUserId(String userId) {
         this.userId = userId;
-    }
+    }*/
 
     public String getFullName() {
         return fullName;

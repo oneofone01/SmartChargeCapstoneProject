@@ -36,6 +36,7 @@
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:textSize="22sp"/>
+
     <Button
         android:id="@+id/btnSignIn"
         android:layout_width="200dp"
@@ -44,7 +45,8 @@
         android:text="SIGN IN"
 
         android:textColor="#1495d7"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
