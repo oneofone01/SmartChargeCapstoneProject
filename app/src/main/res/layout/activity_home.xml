@@ -27,7 +27,7 @@
             android:layout_marginTop="18dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="My Home"
+            android:text="@string/my_home"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="200dp"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -80,14 +80,21 @@
             android:layout_height="wrap_content"
             android:id="@+id/roomsHomeRecyclerView"
             android:layout_below="@+id/roomsTxt"
-
             android:layout_marginStart="10dp"/>
+
+        <!--<androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginBottom="230dp"
+            android:id="@+id/viewPagerRooms"
+            android:layout_below="@+id/roomsTxt"/>-->
+
         <TextView
             android:id="@+id/devicesTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="470dp"
+            android:layout_marginTop="440dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="@string/recently_used_devices"
@@ -99,9 +106,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/devicesTxt"
             android:id="@+id/devicesHomeRecyclerView"
-            android:layout_marginStart="10dp" />
+            android:layout_below="@+id/devicesTxt"
+            android:layout_marginStart="10dp"/>
+        <!--<androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:id="@+id/viewPagerDevices"
+            android:layout_below="@+id/devicesTxt"/>-->
     </RelativeLayout>
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/myHomeAccountButton"

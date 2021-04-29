@@ -21,5 +21,6 @@
     <string name="my_first_room">My First Room!</string>
     <string name="room_description">Room Description</string>
     <string name="room_name">Room Name</string>
+    <string name="roomname">roomName</string>
 
 </resources>

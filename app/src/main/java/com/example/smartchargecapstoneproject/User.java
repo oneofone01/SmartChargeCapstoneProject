@@ -2,6 +2,7 @@ package com.example.smartchargecapstoneproject;
 
 public class User {
     public String etFullName, etEmail;
+    //public String
 
     public User(){
 

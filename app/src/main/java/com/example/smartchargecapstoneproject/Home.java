@@ -1,9 +1,11 @@
 package com.example.smartchargecapstoneproject;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
@@ -30,7 +32,7 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Home extends AppCompatActivity /*implements adapterphone.ListItemClickListener*/{
+public class Home extends AppCompatActivity /*implements adapterphone.ListItemClickListener*/ {
 
     private Button backBtn;
     private TextView userNameDisplay;
@@ -40,6 +42,10 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
     private DatabaseReference databaseReference;
     private CircleImageView accountBtn;
     private String userID;
+    private ActionBar actionBar;
+    private ViewPager viewPagerRooms;
+    private ArrayList<MyRoomsHomeCardModel> modelArrayList;
+    private MyRoomsHomeCardAdapter myRoomsHomeCardAdapter;
     //RecyclerView recyclerView;
 
     //RecyclerView.Adapter adapter;
@@ -48,6 +54,32 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        /*        actionBar = getSupportActionBar();
+
+        //init UI views
+        viewPagerRooms = findViewById(R.id.viewPagerRooms);
+        loadCards();
+
+        //set viewpager change listener
+        viewPagerRooms.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //
+                String roomName = modelArrayList.get(position).getRoomName();
+                actionBar.setTitle(roomName);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });*/
 
         //recyclerView = findViewById(R.id.recycler_view);
 
@@ -73,7 +105,7 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
 
-                if(userProfile != null){
+                if (userProfile != null) {
                     String userNameDisplay = userProfile.etFullName;
 
                     nameTextView.setText(userNameDisplay);
@@ -139,6 +171,33 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
             }
         });
     }
+}
+
+
+
+
+/*    private void loadCards() {
+        //init list
+        modelArrayList = new ArrayList<>();
+
+        //add items to list
+        modelArrayList.add(new MyRoomsHomeCardModel(
+                "Garage"));
+        modelArrayList.add(new MyRoomsHomeCardModel(
+                "Bathroom"));
+
+        //setup adapter
+        myRoomsHomeCardAdapter = new MyRoomsHomeCardAdapter(this,modelArrayList);
+        //set adapter to view pager
+        viewPagerRooms.setAdapter(myRoomsHomeCardAdapter);
+        //set default padding from left to right
+        viewPagerRooms.setPadding(100, 0, 100,0);
+
+    }*/
+
+
+
+
 
 /*    private void phoneRecycler() {
 
@@ -191,4 +250,4 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
 
         }
     }*/
-}
+//}

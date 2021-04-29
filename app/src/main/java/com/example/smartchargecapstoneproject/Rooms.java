@@ -42,8 +42,10 @@ public class Rooms extends AppCompatActivity implements ExampleDialog.ExampleDia
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rooms);
 
-        //databaseReference= FirebaseDatabase.getInstance().getReference().child("rooms");
+
         databaseReference=FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rooms");
+
+        //databaseReference=FirebaseDatabase.getInstance().getReference().child("rooms");
         //databaseReference=FirebaseDatabase.getInstance().getReference("Users").child("rooms");
 
         //databaseReference=FirebaseDatabase.getInstance().getReference("RoomDescription");
