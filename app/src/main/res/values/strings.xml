@@ -6,4 +6,20 @@
     <string name="michael_walsh">Michael Walsh</string>
     <string name="recently_used_devices">Recently used devices</string>
     <string name="view_all" />
+    <string name="my_account">My Account</string>
+    <string name="smart_charge">SMART CHARGE</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up!</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="edit">edit</string>
+    <string name="my_rooms">My Rooms</string>
+    <string name="my_first_room">My First Room!</string>
+    <string name="room_description">Room Description</string>
+    <string name="room_name">Room Name</string>
+
 </resources>

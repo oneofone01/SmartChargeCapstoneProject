@@ -21,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_createRoomTxt"
-        android:hint="Room Name" />
+        android:hint="@string/room_name"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edit_roomDescription"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_roomName"
         android:layout_alignParentStart="true"
-        android:hint="Room Description"
+        android:hint="@string/room_description"
         android:inputType="text" />
 
 </RelativeLayout>
