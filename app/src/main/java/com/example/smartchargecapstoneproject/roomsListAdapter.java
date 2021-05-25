@@ -67,6 +67,10 @@ public class roomsListAdapter extends RecyclerView.Adapter<roomsListAdapter.Exam
         //return mExampleRooms.size();
         return list.size();
     }
+
+    public void setItems(  ArrayList<RoomList> list) {
+        this.list = new ArrayList<RoomList>(list);
+    }
 }
 
 

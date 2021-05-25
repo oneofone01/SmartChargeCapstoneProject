@@ -43,10 +43,12 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
     private CircleImageView accountBtn;
     private String userID;
     private ActionBar actionBar;
+
     private ViewPager viewPagerRooms;
-    private ArrayList<MyRoomsHomeCardModel> modelArrayList;
+    private ArrayList<MyRoomsHomeCardModel> modelArrayList = new ArrayList<>();
     private MyRoomsHomeCardAdapter myRoomsHomeCardAdapter;
-    //RecyclerView recyclerView;
+
+
 
     //RecyclerView.Adapter adapter;
 
@@ -167,6 +169,36 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, MainMenuActivity.class);
                 startActivity(intent);
+
+            }
+        });
+
+        // recycleView for ROOMS
+        databaseReference=FirebaseDatabase.getInstance().getReference("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .child("rooms");
+
+        viewPagerRooms = findViewById(R.id.viewPagerRooms);
+        myRoomsHomeCardAdapter = new MyRoomsHomeCardAdapter(this, new ArrayList<>());
+        viewPagerRooms.setAdapter(myRoomsHomeCardAdapter);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                modelArrayList.clear();
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    RoomList roomList = dataSnapshot.getValue(RoomList.class);
+
+                    MyRoomsHomeCardModel cardModel = new MyRoomsHomeCardModel(roomList.getRoomName());
+                    modelArrayList.add(cardModel);
+                }
+                myRoomsHomeCardAdapter.setArrayItems(modelArrayList);
+                myRoomsHomeCardAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });

@@ -62,16 +62,16 @@ public class ExampleDialog extends AppCompatDialogFragment {
 
                         //String roomName = editRoomName
 
-                        myRef.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Object value = snapshot.getValue();
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                            }
-                        });
+//                        myRef.addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                Object value = snapshot.getValue();
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError error) {
+//                            }
+//                        });
 
                         //myRef.child("Users").child(editRoomName.getText().toString()).child("Room Name").setValue(editRoomName.getText().toString());
                         //myRef.child("Users").child(editRoomDescription.getText().toString()).child("Room Description").setValue(editRoomDescription.getText().toString());

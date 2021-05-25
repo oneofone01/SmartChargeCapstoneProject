@@ -75,19 +75,18 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/roomsHomeRecyclerView"
-            android:layout_below="@+id/roomsTxt"
-            android:layout_marginStart="10dp"/>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/roomsHomeRecyclerView"-->
+<!--            android:layout_below="@+id/roomsTxt"-->
+<!--            android:layout_marginStart="10dp"/>-->
 
-        <!--<androidx.viewpager.widget.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="170dp"
-            android:layout_marginBottom="230dp"
             android:id="@+id/viewPagerRooms"
-            android:layout_below="@+id/roomsTxt"/>-->
+            android:layout_below="@+id/roomsTxt"/>
 
         <TextView
             android:id="@+id/devicesTxt"

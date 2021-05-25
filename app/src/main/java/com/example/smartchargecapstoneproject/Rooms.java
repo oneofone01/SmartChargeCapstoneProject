@@ -43,7 +43,9 @@ public class Rooms extends AppCompatActivity implements ExampleDialog.ExampleDia
         setContentView(R.layout.activity_rooms);
 
 
-        databaseReference=FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rooms");
+        databaseReference=FirebaseDatabase.getInstance().getReference("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .child("rooms");
 
         //databaseReference=FirebaseDatabase.getInstance().getReference().child("rooms");
         //databaseReference=FirebaseDatabase.getInstance().getReference("Users").child("rooms");
@@ -85,10 +87,13 @@ public class Rooms extends AppCompatActivity implements ExampleDialog.ExampleDia
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     RoomList roomList = dataSnapshot.getValue(RoomList.class);
                     list.add(roomList);
                 }
+                roomsListAdapter.setItems(list);
                 roomsListAdapter.notifyDataSetChanged();
             }
 

@@ -59,12 +59,16 @@ public class MyRoomsHomeCardAdapter extends PagerAdapter {
         });
 
         //add view to container
-        container.addView(view, position);
+         container.addView(view);
         return view;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View)object);
+    }
+
+    public void setArrayItems(ArrayList<MyRoomsHomeCardModel> modelArrayList) {
+        this.modelArrayList = new ArrayList<>(modelArrayList);
     }
 }
