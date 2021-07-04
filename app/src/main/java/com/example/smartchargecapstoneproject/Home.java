@@ -45,6 +45,8 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
     private ActionBar actionBar;
 
     private ViewPager viewPagerRooms;
+    private ViewPager viewPagerDevices;
+
     private ArrayList<MyRoomsHomeCardModel> modelArrayList = new ArrayList<>();
     private MyRoomsHomeCardAdapter myRoomsHomeCardAdapter;
 
@@ -202,6 +204,8 @@ public class Home extends AppCompatActivity /*implements adapterphone.ListItemCl
 
             }
         });
+
+
     }
 }
 

@@ -102,17 +102,17 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <androidx.recyclerview.widget.RecyclerView
+        <!--<androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/devicesHomeRecyclerView"
             android:layout_below="@+id/devicesTxt"
-            android:layout_marginStart="10dp"/>
-        <!--<androidx.viewpager.widget.ViewPager
+            android:layout_marginStart="10dp"/>-->
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:id="@+id/viewPagerDevices"
-            android:layout_below="@+id/devicesTxt"/>-->
+            android:layout_below="@+id/devicesTxt"/>
     </RelativeLayout>
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/myHomeAccountButton"
