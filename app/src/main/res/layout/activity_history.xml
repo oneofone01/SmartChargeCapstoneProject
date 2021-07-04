@@ -26,7 +26,7 @@
             android:layout_marginTop="18dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="My Device History"
+            android:text="Device History"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"

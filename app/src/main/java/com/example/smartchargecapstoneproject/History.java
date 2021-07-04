@@ -54,5 +54,8 @@ public class History extends AppCompatActivity {
         historyListList.add(new HistoryList("'Lakehouse' outlet has lost power!", "Ensure smart outlet is securely connected to the wall outlet"));
         historyListList.add(new HistoryList(" 'Kitchen' outlet has been manually powered OFF", "No action needed"));
         historyListList.add(new HistoryList(" 'Office' outlet has been manually powered ON", "No action needed"));
+        historyListList.add(new HistoryList(" 'Office' room has been created", "No action needed"));
+        historyListList.add(new HistoryList(" New User has been added to this account", "No action needed"));
+
     }
 }
