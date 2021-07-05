@@ -22,5 +22,6 @@
     <string name="room_description">Room Description</string>
     <string name="room_name">Room Name</string>
     <string name="roomname">roomName</string>
+    <string name="devicename">deviceName</string>
 
 </resources>

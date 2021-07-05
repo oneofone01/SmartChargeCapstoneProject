@@ -59,7 +59,7 @@ public class MyRoomsHomeCardAdapter extends PagerAdapter {
         });
 
         //add view to container
-         container.addView(view);
+        container.addView(view);
         return view;
     }
 
