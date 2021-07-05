@@ -68,6 +68,11 @@ public class MyRoomsHomeCardAdapter extends PagerAdapter {
         container.removeView((View)object);
     }
 
+    @Override
+    public float getPageWidth(int position) {
+        return(0.5f);
+    }
+
     public void setArrayItems(ArrayList<MyRoomsHomeCardModel> modelArrayList) {
         this.modelArrayList = new ArrayList<>(modelArrayList);
     }

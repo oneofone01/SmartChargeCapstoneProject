@@ -44,12 +44,10 @@ public class MyDevicesHomeCardAdapter extends PagerAdapter {
         View view = LayoutInflater.from(context).inflate(R.layout.home_devices_cards, container, false);
 
         //init uid views from _home_rooms_cards.xml
-
         TextView deviceHomeCardName = view.findViewById(R.id.deviceHomeCardName);
 
         //get data
         MyDevicesHomeCardModel model = modelArrayList.get(position);
-
         String deviceName = model.getDeviceName();
 
         //set data
@@ -72,6 +70,11 @@ public class MyDevicesHomeCardAdapter extends PagerAdapter {
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View)object);
+    }
+
+    @Override
+    public float getPageWidth(int position) {
+        return(0.5f);
     }
 
     public void setArrayItems(ArrayList<MyDevicesHomeCardModel> modelArrayList) {

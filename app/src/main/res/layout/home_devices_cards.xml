@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center_vertical"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_margin="8dp"
 
-        android:clickable="true"
-        android:padding="8dp"
-        app:cardCornerRadius="55dp">
-        <RelativeLayout
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            >
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="22dp"
+        app:cardBackgroundColor="@color/cardview_dark_background">
+
+        <LinearLayout
+            android:id="@+id/lingo"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="28dp"
+
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/deviceHomeCardName"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:text="@string/devicename"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:textSize="35sp"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:textSize="25sp"
+                android:layout_margin="5dp"
                 android:textAlignment="center"
+                android:text="@string/devicename"
+                android:textColor="@color/white"/>
 
-                />
-        </RelativeLayout>
+        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
+
+
 </LinearLayout>
