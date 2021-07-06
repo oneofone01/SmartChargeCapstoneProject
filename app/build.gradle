@@ -6,23 +6,27 @@ plugins {
 android {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\mgwal\\keystores\\android.jks')
+            storeFile file('C:\\Users\\mgwal\\keystores\\release-key.jks')
             storePassword 'Pineapple1'
-            keyAlias 'keySneakyPants'
+            keyAlias 'release-key'
             keyPassword 'Pineapple1'
         }
         release {
+            storeFile file('C:\\Users\\mgwal\\keystores\\release-key.jks')
+            storePassword 'Pineapple1'
+            keyAlias 'release-key'
+            keyPassword 'Pineapple1'
         }
     }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
-    lintOptions {
+    /*lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
-    }
+    }*/
 
     defaultConfig {
         applicationId "com.example.smartchargecapstoneproject"
@@ -73,6 +77,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.31"
 
 }
 apply plugin: 'com.google.gms.google-services'

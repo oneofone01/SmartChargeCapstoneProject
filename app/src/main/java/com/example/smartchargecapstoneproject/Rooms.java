@@ -56,8 +56,12 @@ public class Rooms extends AppCompatActivity implements ExampleDialog.ExampleDia
 
         //recyclerView=(RecyclerView)findViewById(R.id.roomsListRecyclerView);
 
+
         recyclerView = findViewById(R.id.roomsListRecyclerView);
-        recyclerView.setHasFixedSize(true);
+
+        //recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
         roomsListAdapter = new roomsListAdapter(this,list);

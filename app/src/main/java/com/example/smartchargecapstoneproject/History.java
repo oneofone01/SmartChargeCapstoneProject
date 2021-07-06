@@ -41,8 +41,11 @@ public class History extends AppCompatActivity {
 
     private void setRecyclerView() {
         HistoryListAdapter historyListAdapter = new HistoryListAdapter(historyListList);
+
         recyclerView.setAdapter(historyListAdapter);
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
+
+        recyclerView.setHasFixedSize(false);
     }
 
     private void initData() {

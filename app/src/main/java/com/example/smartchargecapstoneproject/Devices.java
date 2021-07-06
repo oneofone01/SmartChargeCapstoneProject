@@ -43,7 +43,8 @@ public class Devices extends AppCompatActivity {
     private void setRecyclerView() {
         DeviceListAdapter deviceListAdapter = new DeviceListAdapter(deviceListList);
         recyclerView.setAdapter(deviceListAdapter);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
+        //recyclerView.setHasFixedSize(true);
     }
 
     private void initData() {
